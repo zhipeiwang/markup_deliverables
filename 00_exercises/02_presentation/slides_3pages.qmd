@@ -1,0 +1,27 @@
+---
+title: "My first Quarto presentation"
+author:
+  - name: Zhipei (Kim) Wang
+    orcid: 0009-0002-9839-9138
+format: 
+  revealjs:
+    progress: true
+    slideNumber: true
+    center: true
+    logo: "uu-logo.png"
+embed-resources: true
+---
+
+
+## Favorite equation
+
+Posterior distribution: 
+$$
+p(\text{parameters} \mid \text{data}) = \frac{f(\text{data} \mid \text{parameters}) \, p(\text{parameters})}{f(\text{data})}
+$$
+
+The probability distribution of the parameters, conditioning on the dataset.
+
+## Some source of information about me
+
+I am more of a dog person than a cat person.

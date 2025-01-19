@@ -1,0 +1,127 @@
+---
+title: "Exercise 2"
+author: 
+  - name: Zhipei (Kim) Wang
+    orcid: 0009-0002-9839-9138
+bibliography: references.bib
+execute: 
+  echo: true
+editor: source
+format: 
+  revealjs:
+    embed-resources: true
+    progress: true
+    multiplex: true
+    transition: fade
+    slide-number: true
+    margin: 0.075
+    logo: "uu-logo.png" 
+    toc: false
+    toc-depth: 1
+    toc-title: Outline
+    scrollable: true
+    reference-location: margin
+---
+
+## A centered still figure
+<center>
+![My cat listening to me practicing the violin](pic1.png){fig-align="center" width=100%}
+</center>
+
+## A 2-column slide
+
+::: columns
+::: {.column width="50%"}
+![My cat listening to me practicing the violin](pic1.png){fig-align="left" width="100%"}
+
+The above figure is left-aligned <br>
+The caption is also left-aligned <br>
+:::
+
+::: {.column width="50%"}
+<center>
+![My cat listening to me practicing the violin](pic1.png){fig-align="center" width="50%"}
+</center>
+
+
+
+The above figure is centered <br>
+The caption is also centered <br>
+
+:::
+
+:::
+
+## A looping gif with executed, but not displayed r-code
+
+```{r echo=FALSE}
+library(magick)
+gif <- image_read("wink.gif")
+image_animate(gif, loop = 10)
+```
+
+## r-code, displayed but not executed
+```{r, eval=FALSE}
+#| code-line-numbers: true
+library(magick)
+gif <- image_read("wink.gif")
+image_animate(gif, loop = 10)
+```
+
+## An interactive plot
+```{r}
+library(plotly)
+library(gapminder)
+library(ggplot2)
+
+p <- gapminder %>%
+  filter(year==1987 & continent == "Asia") %>%
+  ggplot( aes(gdpPercap, lifeExp, size = pop, color=country)) +
+  geom_point() +
+  labs(x = "GDP per capita", y = "Life expectation") + 
+  theme_bw()
+
+ggplotly(p)
+```
+
+##  r-code, cached and labeled
+```{r}
+#| cache: true
+#| code-line-numbers: true
+#| label: r-code, cached and labeled
+
+gapminder %>%
+  filter(year == 1987) %>%
+  ggplot( aes(gdpPercap, lifeExp, col = continent)) +
+  geom_point() +
+  labs(x = "GDP per capita", y = "Life expectation") + 
+  theme_bw()
+```
+
+## An interactive table
+
+```{r}
+library(DT)
+gapminder %>% 
+  datatable(options = list(pageLength = 10))
+```
+
+## An aligned multi-row equation
+The spike-and-slab prior [@mitchellBayesianVariableSelection1988; @georgeVariableSelectionGibbs1993] falls into the category of discrete mixture priors. Such a prior can often be written as a mixture of two normal distributions [@piironenProjectiveInferenceHighdimensional2020]:
+$$
+\begin{aligned}
+    \beta_j \mid \lambda_j, c, \varepsilon &\sim \lambda_j \text{N}(0, c^2) + (1 - \lambda_j) \text{N}(0, \varepsilon^2), \nonumber \\
+    \lambda_j \mid \pi &\sim \text{Bernoulli}(\pi), \quad j = 1, \dots, p.
+\end{aligned}
+$$
+
+## An renv reproducible enviroment
+```{r}
+library(renv)
+renv::snapshot()
+```
+
+
+
+
+## References
