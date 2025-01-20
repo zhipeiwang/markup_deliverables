@@ -6,3 +6,7 @@ Deliverable 3: Reusable `R` code wrapped in an `R` package or `Shiny` app.
 - If `Shiny app`, link the app on a `Shiny` server and your development repository (on GitHub).
 
 See course manual for requirements.
+
+The link to my cohesion package: https://github.com/zhipeiwang/cohesion
+
+I failed to get a DOI from zenodo after a few attempts.
